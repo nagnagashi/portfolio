@@ -27,7 +27,8 @@ function App() {
             <h1 className='text-3xl sm:text-6xl text-gray-900 font-medium md-4'>NisshoCode<br />
               My Protfolio WebSite</h1>
             <p className='md-8 leading-relaxed'>
-              現在、webエンジニアとしてデビューしたてのほやほやです。特異な言語はHTML,css,Javascriptぜひみてね</p>
+              現在、webエンジニアとしてデビューしたてのほやほやです。得意な言語はHTML,
+              CSS,JavaScript,PHP,SQR,Reactなどweb全般とPythonです。自身が作ったものを公開しておりますので、ぜひ見ていってください。</p>
             <button className='text-white bg-green-500 py-2 px-6 border-0 rounded text-lg hover:bg-green-600 duration-300'>Contact Me</button>
           </div>
           <div className='md:w-1/2 lg:max-w-lg w-5/6'>
