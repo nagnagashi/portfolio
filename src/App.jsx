@@ -104,8 +104,7 @@ function App() {
                   <a href="#" className='mt-3 text-green-500 items-center'>もっと見る</a>
                 </div>
               </div>
-            </div>{/* md:w-1/3 p-4 */}
-            {/* カードのdivタグ */}
+            
    <title>リンゴ狩りゲーム</title>
     <!-- <link rel="stylesheet" href="styles.css" /> -->
 </head>
@@ -265,6 +264,9 @@ function App() {
 </body>
 
 </html>
+  </div>{/* md:w-1/3 p-4 */}
+            {/* カードのdivタグ */}
+  
 
             <div className='md:w-1/3 p-4'>
 import { useState } from 'react';
