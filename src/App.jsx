@@ -79,7 +79,34 @@ function App() {
 
 <head>
     <meta charset="UTF-8" />
-    <title>リンゴ狩りゲーム</title>
+              <div className='bg-gray-100 rounded-lg p-8'>
+                <div className='flex items-center mb-3'>
+                  <div className='bg-green-500 text-white rounded-full'>
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M3 3H11V11H3V3Z" fill="currentColor" />
+                      <path d="M3 13H11V21H3V13Z" fill="currentColor" />
+                      <path d="M13 3H21V11H13V3Z" fill="currentColor" />
+                      <path d="M13 13H21V21H13V13Z" fill="currentColor" />
+                    </svg>
+                  </div>
+                  <h2 className='text-gray-900 text-lg font-medium ml2'>SNS App</h2>
+                </div>
+                <div>
+                  <p>Reactとjavascriptで投稿機能付きのchatアプリ、仕様はReact,JavaSucript,html,css,frirebaseログイン・ログアウト認証
+                    機能、メッセージ投稿機能、検索機能、お気に入り登録機能を実装しています。
+                  </p>
+                  <a href="#" className='mt-3 text-green-500 items-center'>もっと見る</a>
+                </div>
+              </div>
+            </div>{/* md:w-1/3 p-4 */}
+            {/* カードのdivタグ */}
+   <title>リンゴ狩りゲーム</title>
     <!-- <link rel="stylesheet" href="styles.css" /> -->
 </head>
 
@@ -239,47 +266,6 @@ function App() {
 
 </html>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-              
-              <div className='bg-gray-100 rounded-lg p-8'>
-                <div className='flex items-center mb-3'>
-                  <div className='bg-green-500 text-white rounded-full'>
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M3 3H11V11H3V3Z" fill="currentColor" />
-                      <path d="M3 13H11V21H3V13Z" fill="currentColor" />
-                      <path d="M13 3H21V11H13V3Z" fill="currentColor" />
-                      <path d="M13 13H21V21H13V13Z" fill="currentColor" />
-                    </svg>
-                  </div>
-                  <h2 className='text-gray-900 text-lg font-medium ml2'>SNS App</h2>
-                </div>
-                <div>
-                  <p>Reactとjavascriptで投稿機能付きのchatアプリ、仕様はReact,JavaSucript,html,css,frirebaseログイン・ログアウト認証
-                    機能、メッセージ投稿機能、検索機能、お気に入り登録機能を実装しています。
-                  </p>
-                  <a href="#" className='mt-3 text-green-500 items-center'>もっと見る</a>
-                </div>
-              </div>
-            </div>{/* md:w-1/3 p-4 */}
-            {/* カードのdivタグ */}
             <div className='md:w-1/3 p-4'>
 import { useState } from 'react';
 import './App.css';
