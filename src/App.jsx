@@ -107,166 +107,171 @@ function App() {
             
             </div>{/* md:w-1/3 p-4 */}
             {/* カードのdivタグ */}
-  
-
             <div className='md:w-1/3 p-4'>
-import { useState } from 'react';
-import './App.css';
+              <!DOCTYPE html>
+<html lang="ja">
 
-function App() {
+<head>
+    <meta charset="UTF-8" />
+    <title>リンゴ狩りゲーム</title>
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
+</head>
 
+<body>
+    <h1>リンゴ狩りゲーム</h1>
+    <div id="orchard">
+        <!-- リンゴの画像を配置 -->
+        <img src="image/apple.jpg" class="apple" id="apple1" />
+        <img src="image/apple.jpg" class="apple" id="apple2" />
+        <img src="image/apple.jpg" class="apple" id="apple3" />
+        <img src="image/apple.jpg" class="apple" id="apple4" />
+        <img src="image/apple.jpg" class="apple" id="apple5" />
+        <img src="image/apple.jpg" class="apple" id="apple6" />
 
-  const [showResult, setShowResult] = useState(false);
-
-  const [currentQuestion, setCurrentQuestion] = useState(0)
-
-  const [next, setNext] = useState(false);
-
-  const [answers, setAnswers] = useState([]);
-
-  const [score, setScore] = useState(0);
-
-  const [feedback, setFeedback] = useState(null);
-
-  const [showScore, setShowScore] = useState(false); // score画面の管理trueに変わるとscoreページを表示
-
-  // 追加：スタート画面の表示管理
-  const [showStartScreen, setShowStartScreen] = useState(true);
-
-  // スタートボタンを押したときの処理
-  const startQuiz = () => {
-    setShowStartScreen(false);
-  };
-
-  const handleAnswer = (answer) => {
-    // console.log(answer);
-
-    const newAnswer = {
-      question: quizData[currentQuestion].question,
-      answer: answer,
-      correct: answer === quizData[currentQuestion].correct,
-    };
-
-    if (newAnswer.correct) {
-      setScore((prevScore) => prevScore + 1);
-      setFeedback('〇');
-    } else {
-      setFeedback('×');
-    }
-    setAnswers([...answers, newAnswer]);
-
-    // console.log(answers);
-
-    setNext(true);
-
-  }
-
-  const goToNextQuestion = () => {
-
-    const nextQuestion = currentQuestion + 1
-
-    if (nextQuestion < quizData.length) {
-      setCurrentQuestion(nextQuestion);
-      setNext(false);
-      setFeedback('');
-    } else {
-      // すべての問題が終了した場合の処理
-      setShowResult(true);
-    }
-  };
-
-  return (
-    <div className='quiz-container'>
-      {/* {showStartScreen ? (
-        <div className='start-screen'>
-          <h1>クイズに挑戦しよう！</h1>
-          <button onClick={startQuiz}>スタート</button>
-        </div> */}
-
-
-      {showScore ? (
-        <div className='score-section'>
-          <h1>スコア</h1>
-          <h2>{score}/{quizData.length}</h2>
-          <table className='answer-table'>
-            <thead>
-              <tr>
-                <td>質問</td> <td>あなたの回答</td> <td>合否</td>
-              </tr>
-            </thead>
-            <tbody>
-              {answers.map((item) => (
-                <tr className={item.correct ? 'correct' : 'wrong'}>
-                  <td>{item.question}</td>
-                  <td>{item.answer}</td>
-                  <td>{item.correct ? '〇' : '×'}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      ) : (
-        <div className='question-section'>
-          <h1>問題{currentQuestion + 1}/{quizData.length}</h1>
-          <h2>{quizData[currentQuestion].question}</h2>
-
-          {next ? (
-            <div className='feedback-section'>
-              <h2 className='large-feedback'>{feedback}</h2>  {/* 合否を表示 */}
-              <p>正解は</p>
-              <p>{quizData[currentQuestion].correct}</p>
-              <button onClick={goToNextQuestion}>次の問題へ</button>
-            </div>
-          ) : (
-            <div className='answer-section'>
-              {quizData[currentQuestion].options.map((item, index) => (
-                <button key={index} onClick={() => handleAnswer(item)} className={`quiz-option-button option-${index}`}>{item}</button>
-              ))}
-            </div>
-          )}
-
-
-        </div>
-      )}
-
-
+        <!-- 必要に応じてリンゴを追加 -->
     </div>
+    <p>収穫したリンゴの数: <span id="score">0</span></p>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #orchard {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            margin: 0 auto;
+            border: 2px solid #ccc;
+            background-color: #f0f8ff;
+            overflow: hidden;
+        }
+
+        .apple {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+    </style>
+
+    <script>
+        // スコアの初期化
+        let score = 0;
+        const scoreSpan = document.getElementById('score');
+
+        // リンゴの要素を取得
+        const apples = [
+            document.getElementById('apple1'),
+            document.getElementById('apple2'),
+            document.getElementById('apple3'),
+            document.getElementById('apple4'),
+            document.getElementById('apple5'),
+            document.getElementById('apple6')
+        ];
 
 
-  );
-}
+        // まず、リンゴの情報を管理するための配列を作成
+        const appleDataList = apples.map(apple => {
+            return {
+                element: apple,
+                currentX: 0,
+                currentY: 0,
+                targetX: 0,
+                targetY: 0,
+                speed: 0.02 // 速度係数（調整可能）
+            };
+        });
 
-export default App;
+        // 初期位置と目標位置を設定
+        appleDataList.forEach(data => {
+            // 初期位置
+            data.currentX = Math.random() * (document.getElementById('orchard').clientWidth - data.element.offsetWidth);
+            data.currentY = Math.random() * (document.getElementById('orchard').clientHeight - data.element.offsetHeight);
+            data.element.style.left = `${data.currentX}px`;
+            data.element.style.top = `${data.currentY}px`;
+            // 目標位置も設定
+            setNewTarget(data);
+        });
 
-const quizData = [
-  {
-    question: "太陽系で最も大きい惑星はどれですか？",
-    options: ["地球", "火星", "金星", "木星"],
-    correct: "木星",
-  },
-  {
-    question: "次のうち、哺乳類絵はない動物はどれですか？",
-    options: ["カンガルー", "カンガルー", "ペンギン", "カバ"],
-    correct: "ペンギン",
-  },
-  {
-    question: "モナ・リザを描いた画家は誰ですか？",
-    options: ["レオナルド・ダ・ヴィンンチ",
-      "ミケランジェロ",
-      "フィンセントゴッホ",
-      "モネ",
-    ],
-    correct: "レオナルド・ダ・ヴィンンチ",
-  },
-  {
-    question: "以下の食材の中で、一般的には果物として認識されていないものはどれですか？",
-    options: ["トマト", "りんご", "ぶどう", "ブロッコリー", "バナナ"],
-    correct: "ブロッコリー",
-  },
-];
- 
- 
-              
+        // 目標位置を設定する関数
+        function setNewTarget(data) {
+            const orchard = document.getElementById('orchard');
+            const maxX = orchard.clientWidth - data.element.offsetWidth;
+            const maxY = orchard.clientHeight - data.element.offsetHeight;
+            data.targetX = Math.random() * maxX;
+            data.targetY = Math.random() * maxY;
+        }
+
+        // アニメーションループ
+        function animate() {
+            appleDataList.forEach(data => {
+                // 目標に向かって少しずつ動かす
+                const dx = data.targetX - data.currentX;
+                const dy = data.targetY - data.currentY;
+
+                // 位置を更新
+                data.currentX += dx * data.speed;
+                data.currentY += dy * data.speed;
+
+                // 位置を反映
+                data.element.style.left = `${data.currentX}px`;
+                data.element.style.top = `${data.currentY}px`;
+
+                // 目標に近づいたら新しい目標を設定
+                if (Math.abs(dx) < 1 && Math.abs(dy) < 1) {
+                    // 新しい目標位置を設定
+                    data.targetX = Math.random() * (最大横幅);
+                    data.targetY = Math.random() * (最大縦幅);
+                }
+            }
+            )
+        }
+
+
+
+        // 位置をランダムに設定する関数
+        function setRandomPosition(apple) {
+            const orchard = document.getElementById('orchard');
+            const maxX = orchard.clientWidth - apple.offsetWidth;
+            const maxY = orchard.clientHeight - apple.offsetHeight;
+            const randX = Math.random() * maxX;
+            const randY = Math.random() * maxY;
+            apple.style.left = `${randX}px`;
+            apple.style.top = `${randY}px`;
+        }
+
+        // 初期位置を設定
+        apples.forEach(apple => {
+            setRandomPosition(apple);
+            // クリックイベントを追加
+            apple.addEventListener('click', () => {
+                if (apple.dataset.harvested === 'true') {
+                    return; // 既に収穫済みの場合は無視
+                }
+                apple.dataset.harvested = 'true'; // 収穫済みに設定
+                apple.style.opacity = 0.5; // 見た目を半透明に
+                score += 1; // スコアを増やす
+                scoreSpan.textContent = score; // 表示更新
+            });
+        });
+
+        // 1.5秒ごとにリンゴの位置を更新
+        setInterval(() => {
+            apples.forEach(apple => {
+                setRandomPosition(apple);
+                // 収穫済みの場合は再度収穫可能にする
+                apple.dataset.harvested = 'false';
+                apple.style.opacity = 1;
+            });
+        }, 1500);
+    </script>
+</body>
+
+</html>
               <div className='bg-gray-100 rounded-lg p-8'>
                 <div className='flex items-center mb-3'>
                   <div className='bg-green-500 text-white rounded-full'>
