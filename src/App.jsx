@@ -66,9 +66,8 @@ function App() {
                   <h2 className='text-gray-900 text-lg font-medium ml-2'>SNS App</h2>
                 </div>
                 <div>
-                  <p>Reactとjavascriptで投稿機能付きのchatアプリ、仕様はReact,JavaSucript,html,css,frirebaseログイン・ログアウト認証
-                    機能、メッセージ投稿機能、検索機能、お気に入り登録機能を実装しています。</p>
-                  <a href="#" className='mt-3 text-green-500 items-center'>もっと見る</a>
+                  <p>クリックするとリンゴ狩りができるゲームです。子供でも楽しみながらクリック操作に慣れることができるかと思い考案しました。</p>
+                  <a href="https://github.com/nagnagashi/my-apple.git" className='mt-3 text-green-500 items-center'>もっと見る</a>
                 </div>
               </div>
             </div>{/* md:w-1/3 p-4 */}
