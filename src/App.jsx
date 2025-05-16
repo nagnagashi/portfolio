@@ -122,11 +122,12 @@ function App() {
                 </div>
                 <div>
                   <p>クリックするとリンゴ狩りができるゲームです。子供でも楽しみながらクリック操作に慣れることができるかと思い考案しました。</p>
-                  <a href="https://github.com/nagnagashi/my-apple.git" target="_blank" rel="noopener noreferrer" className='mt-3 text-green-500 items-center'>もっと見る</a>
+{/*                   <a href="https://github.com/nagnagashi/my-apple.git" target="_blank" rel="noopener noreferrer" className='mt-3 text-green-500 items-center'>もっと見る</a> */}
+                  <a href="https://git.example.org/code/git Git" target="_blank" rel="noopener noreferrer" className='mt-3 text-green-500 items-center'>もっと見る</a>
                 </div>
               </div>
             </div>{/* md:w-1/3 p-4 */}
-
+ 
 
           </div>
         </div>
