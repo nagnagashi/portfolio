@@ -156,7 +156,7 @@ function App() {
               </div>
             </div>{/* md:w-1/3 p-4 */}
 
-<div className='md:w-1/3 p-4'>
+            <div className='md:w-1/3 p-4'>
               <div className='bg-gray-100 rounded-lg p-8'>
                 <div className='flex items-center mb-3'>
                   <div className='bg-green-500 text-white rounded-full'>
@@ -177,8 +177,7 @@ function App() {
                 </div>
                 <div>
                   <p>ふと誰かの言葉に励まされたり、何気ない一言が心に響いたりする疲れた現代人向けのレスポンスゲームです。</p>
-{/*                   <a href="https://gyaloba-naganagashis-projects.vercel.app/" target="_blank" rel="noopener noreferrer" className='mt-3 text-green-500 items-center'>もっと見る</a> */}
-                  <a href="https://git.example.org/code/git Git" target="_blank" rel="noopener noreferrer" className='mt-3 text-green-500 items-center'>もっと見る</a>
+                  <a href="https://gyaloba-naganagashis-projects.vercel.app/" target="_blank" rel="noopener noreferrer" className='mt-3 text-green-500 items-center'>もっと見る</a>
                 </div>
               </div>
             </div>{/* md:w-1/3 p-4 */}
