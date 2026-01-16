@@ -129,6 +129,22 @@ function App() {
             </div>{/* md:w-1/3 p-4 */}
 
 
+
+            <path d="M3 3H11V11H3V3Z" fill="currentColor" />
+                      <path d="M3 13H11V21H3V13Z" fill="currentColor" />
+                      <path d="M13 3H21V11H13V3Z" fill="currentColor" />
+                      <path d="M13 13H21V21H13V13Z" fill="currentColor" />
+                    </svg>
+                  </div>
+                  <h2 className='text-gray-900 text-lg font-medium ml-2'>SNS App</h2>
+                </div>
+                <div>
+                  <p>ルーレットアプリを作成しました。シンプルですが項目の削除や追加が簡単にできて、結果表示もわかりやすく表示できるよう工夫しました</p>
+{/*                   <a href="https://random-roulette.vercel.app/" target="_blank" rel="noopener noreferrer" className='mt-3 text-green-500 items-center'>もっと見る</a> */}
+                  <a href="https://new-apple-seven.vercel.app/" target="_blank" rel="noopener noreferrer" className='mt-3 text-green-500 items-center'>もっと見る</a>
+                </div>
+              </div>
+            </div>{/* md:w-1/3 p-4 */}
              <div className='md:w-1/3 p-4'>
               <div className='bg-gray-100 rounded-lg p-8'>
                 <div className='flex items-center mb-3'>
